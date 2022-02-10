@@ -65,14 +65,7 @@ Feature: Back-end Tests
 		Then the list of excercise from that day displays
 		And the user is able to add their exercise data for that day
 
-	# Remove these two
-
 	Scenario: Track number of bench pressed done
 		Given the user did 15 bench press sets of 10 reps, 70 kg
 		When the user tries to update their logs for the day
-		Then The number of benches completes of 70 kg increments by 150, the number of calories burned increases by 90
-
-	Scenario: Track calories burned throughout day
-		Given the user weigh <kg>,the user did <x> reps of bench presses at <x1> kgs, <y> reps of squats etc.
-		When the user try to calculate the calories burned for the day
-		Then The program returns eg. kg * ((0.00183 * x * x1/kg) + (0.0016 * y)) calories burned in that day.
+		Then The number of benches completes of 70 kg increments by 150

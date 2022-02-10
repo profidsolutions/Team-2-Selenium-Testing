@@ -57,10 +57,10 @@ Feature: Front-end Tests
 		And the user hits enter
 		Then The message "Invalid Weight" is displayed
 
-	Scenario: User registration prompt
-		Given the user installed the application
-		When the user opens the app for the first time
-		Then the user can register to get their profile
+	Scenario: User registration or log in prompt
+		Given the user is not logged in
+		When the user opens the home page
+		Then the user is prompted to register or log in
 
 Feature: Back-end Tests
 
@@ -73,4 +73,4 @@ Feature: Back-end Tests
 	Scenario: Track number of bench pressed done
 		Given the user did 15 bench press sets of 10 reps, 70 kg
 		When the user tries to update their logs for the day
-		Then The number of benches completes of 70 kg increments by 150
+		Then The number of 70kg benche presses completed increments by 150

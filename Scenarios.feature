@@ -57,6 +57,11 @@ Feature: Front-end Tests
 		And the user hits enter
 		Then The message "Invalid Weight" is displayed
 
+	Scenario: User registration prompt
+		Given the user installed the application
+		When the user opens the app for the first time
+		Then the user can register to get their profile
+
 Feature: Back-end Tests
 
 	Scenario: Daily Workout Routine

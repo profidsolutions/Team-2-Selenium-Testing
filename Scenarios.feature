@@ -1,0 +1,80 @@
+	Frontend
+
+	Scenario: User Login
+		Given     User is on login page
+		When      User enters username and password
+		And       User hits enter
+		Then      User is logged in
+
+	Scenario: Invalid username
+		Given     User is on login page
+		When      User enters an invalid username and valid password
+		And       User hits enter
+		Then      Message Displayed as Invalid Login
+
+	Scenario: Invalid password
+		Given     User is on login page
+		When      User enters a valid username and invalid password
+		And       User hits enter
+		Then      Message Displayed as Invalid Login
+
+	Scenario: Blank username
+		Given     User is on login page
+		When      User enters an invalid username and valid password
+		And       User hits enter
+		Then      Message Displayed as Username required
+
+	Scenario: Blank password
+		Given     User is on login page
+		When      User enters a valid username and invalid password
+		And       User hits enter
+		Then      Message Displayed as Password required
+
+	Scenario: Home Page
+		Given     User is logged in
+		When      User is on HomePage
+		Then      User is able to see the daily exercises to be done
+
+	Scenario: User Profile
+		Given     User is logged in
+		When      User clicks on Profile
+		Then      User is able to see his details
+
+	Scenario: Display daily workout data
+		Given     user finished inputting data
+		When      user clicks button updating today's workout
+		Then      records are updated, user is able to see the updated records page
+
+	Scenario: Switch to lbs
+		Given user is logged in
+		And 	  user in viewing reps section in kg
+		When      user clicks switch units
+		Then 	  user sees weights in lbs
+
+	Scenario: Enter invalid weight for equipment
+		Given User is in the weight selecting area for equipment
+		When User enters invalid weight
+		And User hits enter
+		Then Invalid weight entered message comes out
+
+
+	Backend:
+
+	Scenario: Daily Workout Routine
+		Given     User is on Daily Workout Routine Page
+		When      User selects the date
+		Then      List of excercise displays
+		And       User is able to add the daily data corresponding to each excercise
+
+	Scenario: Track number of bench pressed done
+		Given     I did 15 bench press sets of 10 reps, 70 kg
+		When      I try to update my logs for the day
+		Then      The number of benches completes of 70 kg increments by 150, the number
+	of calories burned increases by 90
+
+	Scenario: Track calories burned throughout day
+		Given     I weigh <kg>, I did <x> reps of bench presses at <x1> kgs,
+		<y> reps of squats etc.
+		When      I try to calculate the calories burned for the day
+		Then      The program returns eg. kg * ((0.00183 * x * x1/kg) + (0.0016 * y))
+calories burned in that day.
